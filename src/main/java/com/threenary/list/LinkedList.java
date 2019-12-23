@@ -1,49 +1,51 @@
 package com.threenary.list;
 
-public class LinkedList {
+import com.threenary.node.Node;
 
-    private LinkedListNode head;
+public class LinkedList<T> {
 
-    public void prepend(LinkedListNode node) {
-        node.next(head);
+    private Node<T> head;
+
+    public void prepend(Node<T> node) {
+        node.setNext(head);
         if (null != head){
-            head.next(null);
+            head.setNext(null);
         }
         head = node;
     }
 
-    public LinkedListNode head() {
+    public Node<T> head() {
         return this.head;
     }
 
-    public void append(LinkedListNode node) {
+    public void append(Node<T> node) {
         if(head == null){
             prepend(node);
         }else{
-            LinkedListNode tail = tail();
-            tail.next(node);
+            Node tail = tail();
+            tail.setNext(node);
         }
     }
 
-    public LinkedListNode tail() {
-        LinkedListNode current = head;
-        while(current.next() != null){
-            current = current.next();
+    public Node<T> tail() {
+        Node current = head;
+        while(current.getNext() != null){
+            current = current.getNext();
         }
         return current;
     }
 
-    public void delete(LinkedListNode nodeToDelete) {
+    public void delete(Node<T> nodeToDelete) {
         if (nodeToDelete.equals(head)) {
-            head = head.next();
+            head = head.getNext();
         }else if(head != null){
-            LinkedListNode current = head;
-            while (current.next() != null){
-                if(current.next().equals(nodeToDelete)){
-                    current.next(current.next().next());
+            Node<T> current = head;
+            while (current.getNext() != null){
+                if(current.getNext().equals(nodeToDelete)){
+                    current.setNext(current.getNext().getNext());
                     return;
                 }
-                current = current.next();
+                current = current.getNext();
             }
         }
 

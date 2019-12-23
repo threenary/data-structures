@@ -1,4 +1,4 @@
-package com.threenary.queue;
+package com.threenary.node;
 
 public class Node<T> {
 

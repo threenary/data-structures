@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.threenary.queue.QueueWithTwoStacksShould" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-12-23T10:03:36" hostname="Gonzalos-MBP" time="0.047">
+  <properties/>
+  <testcase name="store_more_elements()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.038"/>
+  <testcase name="dequeue_inserted_element()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.0"/>
+  <testcase name="peek_the_oldest_element_in_queue()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="deque_all_elements_in_fifo_order_in_between_queue_operations()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="deque_elements_in_order_of_insertion()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="store_one_element()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="deque_first_inserted_element()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="return_its_size()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <testcase name="expose_element_in_order_of_insertion()" classname="com.threenary.queue.QueueWithTwoStacksShould" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

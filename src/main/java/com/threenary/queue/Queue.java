@@ -1,5 +1,7 @@
 package com.threenary.queue;
 
+import com.threenary.node.Node;
+
 public class Queue<T> {
     private Node<T> tail;
     private Node<T> head;

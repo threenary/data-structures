@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class QueueWithTwoStacksShould {
+class QueueWithTwoStacksShould {
 
     private QueueWithTwoStacks<Object> queue = new QueueWithTwoStacks<>();
 
@@ -22,21 +22,18 @@ public class QueueWithTwoStacksShould {
     @Test
     void store_more_elements() {
         addIntegersInAscendingOrderToQueue(10);
-
-        assertThat(queue.size()).isEqualTo(10);
+        assertThat(queue.size()).isEqualTo(9);
     }
 
     @Test
     void dequeue_inserted_element() {
         queue.enqueue(1);
-
         assertThat(queue.dequeue()).isEqualTo(1);
     }
 
     @Test
     void deque_first_inserted_element() {
         addIntegersInAscendingOrderToQueue(2);
-
         assertThat(queue.dequeue()).isEqualTo(1);
     }
 
@@ -53,7 +50,6 @@ public class QueueWithTwoStacksShould {
     @Test
     void expose_element_in_order_of_insertion() {
         addIntegersInAscendingOrderToQueue(10);
-
         assertThat(queue.peek()).isEqualTo(1);
     }
 

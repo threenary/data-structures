@@ -1,5 +1,6 @@
 package com.threenary.queue;
 
+import com.threenary.node.Node;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +15,7 @@ class QueueShould {
     }
 
     @Test
-    public void show_head_element_data() {
+    void show_head_element_data() {
         Node<String> element = new Node<>("data");
         queue.add(element);
 
@@ -41,7 +42,7 @@ class QueueShould {
     }
 
     @Test
-    public void remove_the_oldest_element_and_update_head() {
+    void remove_the_oldest_element_and_update_head() {
         Node<String> oldestNode = new Node<>("firstData");
         queue.add(oldestNode);
         Node<String> secondNode = new Node<>("secondData");
@@ -52,7 +53,7 @@ class QueueShould {
     }
 
     @Test
-    public void return_elements_in_fifo_order() {
+    void return_elements_in_fifo_order() {
         Node<String> firstNode = new Node<>("first");
         Node<String> secondNode = new Node<>("second");
         Node<String> thirdNode = new Node<>("third");
