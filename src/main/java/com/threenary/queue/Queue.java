@@ -2,6 +2,10 @@ package com.threenary.queue;
 
 import com.threenary.node.Node;
 
+/**
+ * Self implementation of a Queue
+ * @param <T>
+ */
 public class Queue<T> {
     private Node<T> tail;
     private Node<T> head;
