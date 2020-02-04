@@ -4,7 +4,14 @@ import com.threenary.node.Node;
 
 /**
  * Self implementation of a Queue
+ *
  * @param <T>
+ *
+ * # Add: O(1)
+ * # Remove: O(1)
+ * # Access: O(n)
+ * # Search: O(n)
+ *
  */
 public class Queue<T> {
     private Node<T> tail;

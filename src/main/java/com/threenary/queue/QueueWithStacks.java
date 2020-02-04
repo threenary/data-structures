@@ -2,7 +2,12 @@ package com.threenary.queue;
 
 import java.util.Stack;
 
-public class QueueWithTwoStacks<T> {
+/**
+ * <code>Queue</code> implemented with two <code>Stack</code>
+ *
+ * @param <T>
+ */
+public class QueueWithStacks<T> {
     private Stack<T> stack = new Stack<>();
     private Stack<T> stackBottomUp = new Stack<>();
 

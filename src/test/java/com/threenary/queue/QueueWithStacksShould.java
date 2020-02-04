@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class QueueWithTwoStacksShould {
+class QueueWithStacksShould {
 
-    private QueueWithTwoStacks<Object> queue = new QueueWithTwoStacks<>();
+    private QueueWithStacks<Object> queue = new QueueWithStacks<>();
 
     @Test
     void return_its_size() {
