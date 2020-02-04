@@ -13,7 +13,7 @@ class StackShould {
     private Stack<String> stack;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         stack = new Stack<>();
     }
 
@@ -30,15 +30,32 @@ class StackShould {
         assertFalse(stack.isEmpty());
     }
 
-
     @Test
     public void return_the_head_data_when_no_empty() {
-        String element = "element";
-        Node<String> node = new Node<>(element);
+        Node<String> node = new Node<>("element");
         stack.push(node);
 
-        assertThat(stack.peek()).isEqualTo(element);
+        assertThat(stack.peek()).isEqualTo(node.getData());
     }
 
+    @Test
+    public void return_data_of_the_last_element_added() {
+        Node<String> node1 = new Node<>("node1");
+        stack.push(node1);
+        Node<String> node2 = new Node<>("node2");
+        stack.push(node2);
 
+        assertThat(stack.peek()).isEqualTo(node2.getData());
+    }
+
+    @Test
+    public void extract_the_last_node_inserted() {
+        Node<String> node1 = new Node<>("node1");
+        stack.push(node1);
+        Node<String> node2 = new Node<>("node2");
+        stack.push(node2);
+
+        assertThat(stack.pop()).isEqualTo(node2);
+        assertThat(stack.peek()).isEqualTo(node1.getData());
+    }
 }

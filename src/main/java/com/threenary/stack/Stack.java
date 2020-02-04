@@ -24,4 +24,10 @@ public class Stack<T> {
         node.setNext(head);
         this.head = node;
     }
+
+    public Node<T> pop() {
+        Node<T> node = head;
+        head = head.getNext();
+        return node;
+    }
 }
