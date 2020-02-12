@@ -8,32 +8,34 @@ import java.util.Stack;
  * @param <T>
  */
 public class QueueWithStacks<T> {
-    private Stack<T> stack = new Stack<>();
-    private Stack<T> stackBottomUp = new Stack<>();
+    private Stack<T> stackNewest = new Stack<>();
+    private Stack<T> stackOldest = new Stack<>();
 
     public void enqueue(T element) {
-        stack.push(element);
+        stackNewest.push(element);
     }
 
     public int size() {
-        return stack.size() + stackBottomUp.size();
+        return stackNewest.size() + stackOldest.size();
     }
 
     public T dequeue() {
-        traverseStacks();
-        return stackBottomUp.pop();
+        if (stackOldest.isEmpty()) {
+            traverseStacks();
+        }
+        return stackOldest.pop();
     }
 
     public T peek() {
-        traverseStacks();
-        return stackBottomUp.peek();
+        if (stackOldest.isEmpty()) {
+            traverseStacks();
+        }
+        return stackOldest.peek();
     }
 
     private void traverseStacks() {
-        if (stackBottomUp.isEmpty()) {
-            while (!stack.isEmpty()) {
-                stackBottomUp.push(stack.pop());
-            }
+        while (!stackNewest.isEmpty()) {
+            stackOldest.push(stackNewest.pop());
         }
     }
 }
