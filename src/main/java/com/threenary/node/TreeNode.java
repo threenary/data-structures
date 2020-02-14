@@ -88,19 +88,24 @@ public class TreeNode<T extends Comparable<T>> {
         return (right != null) ? right.size() : 0;
     }
 
-    public void remove(T value) {
-
+    public List<T> traverseInOrder() {
+        List<T> result = new LinkedList<>(traverseLeft());
+        result.add(data);
+        result.addAll(traverseRight());
+        return result;
     }
 
-    public List<T> traverseInOrder() {
-        List<T> result = new LinkedList<>();
-        if (left != null) {
-            result.addAll(left.traverseInOrder());
-        }
-        result.add(data);
+    private List<T> traverseRight() {
         if (right != null) {
-            result.addAll(right.traverseInOrder());
+            return right.traverseInOrder();
         }
-        return result;
+        return List.of();
+    }
+
+    private List<T> traverseLeft() {
+        if (left != null) {
+            return left.traverseInOrder();
+        }
+        return List.of();
     }
 }
