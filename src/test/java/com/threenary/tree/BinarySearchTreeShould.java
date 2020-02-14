@@ -13,7 +13,7 @@ class BinarySearchTreeShould {
     }
 
     @Test
-    public void insert_a_node_to_its_left_when_lower_than_root() {
+    public void insert_smaller_value_node_to_the_left_when_empty() {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>(100);
         var lowerValue = 5;
 
@@ -23,7 +23,7 @@ class BinarySearchTreeShould {
     }
 
     @Test
-    public void insert_a_node_to_its_right_when_higher_than_root() {
+    public void insert_bigger_value_node_to_the_right_when_empty() {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>(100);
         var higherValue = 500;
 
@@ -57,6 +57,15 @@ class BinarySearchTreeShould {
         assertThat(bst.getRoot().getRight().getData().intValue()).isNotEqualTo(secondRightValue);
         assertThat(bst.getRoot().getRight().getRight().getData().intValue()).isEqualTo(secondRightValue);
     }
+
+    @Test
+    public void identify_if_a_value_exists_in_the_root() {
+        var value = 50;
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>(value);
+
+        assertThat(bst.contains(value)).isTrue();
+    }
+
 
 
 }

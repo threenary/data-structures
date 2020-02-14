@@ -29,8 +29,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
         throw new UnsupportedOperationException();
     }
 
-    public void contains(T value){
-        throw new UnsupportedOperationException();
+    public boolean contains(T value){
+        return root.getData().equals(value);
     }
 
     public void traverseInOrder(){
