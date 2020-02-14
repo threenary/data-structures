@@ -2,6 +2,7 @@ package com.threenary.tree;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -94,6 +95,17 @@ class BinarySearchTreeShould {
     @Test
     public void return_one_when_only_root() {
         assertThat(new BinarySearchTree<>(10).size()).isEqualTo(1);
+    }
+
+    @Test
+    public void print_values_in_order_from_left_to_right() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>(10);
+        bst.insert(5);
+        bst.insert(8);
+        bst.insert(15);
+
+        List<Integer> result = bst.traverseInOrder();
+        assertThat(result).containsExactly(5,8,10,15);
     }
 
 

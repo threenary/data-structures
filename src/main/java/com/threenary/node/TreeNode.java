@@ -1,5 +1,8 @@
 package com.threenary.node;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class TreeNode<T extends Comparable<T>> {
     private T data;
     private TreeNode<T> left;
@@ -14,7 +17,7 @@ public class TreeNode<T extends Comparable<T>> {
     }
 
     public void insert(TreeNode<T> node) {
-        if (data.compareTo(node.data) >= 0) {
+        if (data.compareTo(node.getData()) >= 0) {
             insertLeft(node);
         } else {
             insertRight(node);
@@ -41,8 +44,22 @@ public class TreeNode<T extends Comparable<T>> {
         return this.left;
     }
 
+    public void setLeft(TreeNode<T> node) {
+        if (data.compareTo(node.getData()) > 0) {
+            throw new IllegalArgumentException("Can't add a bigger value in the left branch");
+        }
+        this.left = node;
+    }
+
     public TreeNode<T> getRight() {
         return this.right;
+    }
+
+    public void setRight(TreeNode<T> node) {
+        if (data.compareTo(node.getData()) <= 0) {
+            throw new IllegalArgumentException("Can't add a lower value in the right branch");
+        }
+        this.right = node;
     }
 
     public boolean contains(T value) {
@@ -69,5 +86,21 @@ public class TreeNode<T extends Comparable<T>> {
 
     private int countRight() {
         return (right != null) ? right.size() : 0;
+    }
+
+    public void remove(T value) {
+
+    }
+
+    public List<T> traverseInOrder() {
+        List<T> result = new LinkedList<>();
+        if (left != null) {
+            result.addAll(left.traverseInOrder());
+        }
+        result.add(data);
+        if (right != null) {
+            result.addAll(right.traverseInOrder());
+        }
+        return result;
     }
 }
