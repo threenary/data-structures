@@ -91,5 +91,10 @@ class BinarySearchTreeShould {
         assertThat(bst.size()).isEqualTo(expectedSize + 1);
     }
 
+    @Test
+    public void return_one_when_only_root() {
+        assertThat(new BinarySearchTree<>(10).size()).isEqualTo(1);
+    }
+
 
 }
