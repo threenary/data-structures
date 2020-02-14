@@ -30,7 +30,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean contains(T value){
-        return root.getData().equals(value);
+        return root.contains(value);
     }
 
     public void traverseInOrder(){

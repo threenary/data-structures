@@ -2,6 +2,8 @@ package com.threenary.tree;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BinarySearchTreeShould {
@@ -66,6 +68,16 @@ class BinarySearchTreeShould {
         assertThat(bst.contains(value)).isTrue();
     }
 
+    @Test
+    public void identify_if_a_value_exists_in_any_branch() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>(100);
+        for (int i = 0; i < 10; i++) {
+            bst.insert(i * ThreadLocalRandom.current().nextInt());
+        }
+        var value = 55;
+        bst.insert(value);
 
+        assertThat(bst.contains(value)).isTrue();
+    }
 
 }

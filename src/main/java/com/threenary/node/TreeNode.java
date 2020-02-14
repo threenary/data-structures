@@ -16,23 +16,23 @@ public class TreeNode<T extends Comparable<T>> {
     public void insert(TreeNode<T> node) {
         if (data.compareTo(node.data) >= 0) {
             insertLeft(node);
-        }else {
+        } else {
             insertRight(node);
         }
     }
 
     private void insertRight(TreeNode<T> node) {
-        if(right != null) {
+        if (right != null) {
             this.right.insert(node);
-        }else{
+        } else {
             this.right = node;
         }
     }
 
     private void insertLeft(TreeNode<T> node) {
-        if(left != null){
+        if (left != null) {
             this.left.insert(node);
-        }else{
+        } else {
             this.left = node;
         }
     }
@@ -43,5 +43,19 @@ public class TreeNode<T extends Comparable<T>> {
 
     public TreeNode<T> getRight() {
         return this.right;
+    }
+
+    public boolean contains(T value) {
+        return this.getData().equals(value)
+                || isContainedInLeftBranch(value)
+                || isContainedInRightBranch(value);
+    }
+
+    private boolean isContainedInRightBranch(T value) {
+        return (null != right) && this.getRight().contains(value);
+    }
+
+    private boolean isContainedInLeftBranch(T value) {
+        return (null != left) && this.getLeft().contains(value);
     }
 }
