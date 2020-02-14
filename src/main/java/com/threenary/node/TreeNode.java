@@ -15,17 +15,25 @@ public class TreeNode<T extends Comparable<T>> {
 
     public void insert(TreeNode<T> node) {
         if (data.compareTo(node.data) >= 0) {
-            if(left != null){
-                this.left.insert(node);
-            }else{
-                this.left = node;
-            }
+            insertLeft(node);
         }else {
-            if(right != null) {
-                this.right.insert(node);
-            }else{
-                this.right = node;
-            }
+            insertRight(node);
+        }
+    }
+
+    private void insertRight(TreeNode<T> node) {
+        if(right != null) {
+            this.right.insert(node);
+        }else{
+            this.right = node;
+        }
+    }
+
+    private void insertLeft(TreeNode<T> node) {
+        if(left != null){
+            this.left.insert(node);
+        }else{
+            this.left = node;
         }
     }
 
