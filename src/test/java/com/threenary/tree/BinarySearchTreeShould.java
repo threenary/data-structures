@@ -80,4 +80,16 @@ class BinarySearchTreeShould {
         assertThat(bst.contains(value)).isTrue();
     }
 
+    @Test
+    public void return_the_count_of_nodes_in_branches_plus_root() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>(55);
+        var expectedSize = 10;
+        for (int i = 0; i < expectedSize; i++) {
+            bst.insert(i);
+        }
+
+        assertThat(bst.size()).isEqualTo(expectedSize + 1);
+    }
+
+
 }

@@ -58,4 +58,16 @@ public class TreeNode<T extends Comparable<T>> {
     private boolean isContainedInLeftBranch(T value) {
         return (null != left) && this.getLeft().contains(value);
     }
+
+    public int size() {
+        return 1 + countLeft() + countRight();
+    }
+
+    private int countLeft() {
+        return (left != null) ? left.size() : 0;
+    }
+
+    private int countRight() {
+        return (right != null) ? right.size() : 0;
+    }
 }

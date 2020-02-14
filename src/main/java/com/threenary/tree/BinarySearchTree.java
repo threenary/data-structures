@@ -2,9 +2,6 @@ package com.threenary.tree;
 
 import com.threenary.node.TreeNode;
 
-import java.lang.annotation.Target;
-import java.util.TreeSet;
-
 /**
  * Self implementation of a BinarySearchTree
  *
@@ -20,24 +17,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
         this.root = new TreeNode<>(value);
     }
 
-    public void insert(T value){
+    public void insert(T value) {
         TreeNode<T> node = new TreeNode<>(value);
         root.insert(node);
     }
 
-    public void remove(TreeNode<T> node){
+    public void remove(TreeNode<T> node) {
         throw new UnsupportedOperationException();
     }
 
-    public boolean contains(T value){
+    public boolean contains(T value) {
         return root.contains(value);
     }
 
-    public void traverseInOrder(){
+    public void traverseInOrder() {
         throw new UnsupportedOperationException("Method not yet implemented");
     }
 
     public TreeNode<T> getRoot() {
         return root;
     }
+
+    public int size() {
+        return (root != null) ? root.size() : 0;
+    }
+
 }
