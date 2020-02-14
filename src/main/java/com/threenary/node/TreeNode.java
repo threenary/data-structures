@@ -15,7 +15,11 @@ public class TreeNode<T extends Comparable<T>> {
 
     public void insert(TreeNode<T> node) {
         if (data.compareTo(node.data) >= 0) {
-            this.left = node;
+            if(left != null){
+                this.left.insert(node);
+            }else{
+                this.left = node;
+            }
         }else {
             if(right != null) {
                 this.right.insert(node);
@@ -25,7 +29,7 @@ public class TreeNode<T extends Comparable<T>> {
         }
     }
 
-    public TreeNode<? extends T> getLeft() {
+    public TreeNode<T> getLeft() {
         return this.left;
     }
 

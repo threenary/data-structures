@@ -1,6 +1,5 @@
 package com.threenary.tree;
 
-import com.threenary.node.TreeNode;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,6 +32,18 @@ class BinarySearchTreeShould {
         assertThat(bst.getRoot().getRight().getData().intValue()).isEqualTo(higherValue);
     }
 
+    @Test
+    public void insert_node_as_left_leaf_when_tree_not_empty_an_lower_value() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>(100);
+        var firstLeftValue = 90;
+        bst.insert(firstLeftValue);
+
+        var secondLeftValue = 50;
+        bst.insert(secondLeftValue);
+
+        assertThat(bst.getRoot().getLeft().getData().intValue()).isNotEqualTo(secondLeftValue);
+        assertThat(bst.getRoot().getLeft().getLeft().getData().intValue()).isEqualTo(secondLeftValue);
+    }
 
     @Test
     public void insert_node_as_right_leaf_when_tree_not_empty_an_bigger_value() {
