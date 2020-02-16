@@ -1,4 +1,4 @@
-package com.threenary.queue;
+package com.threenary.challenge;
 
 import java.util.Stack;
 
